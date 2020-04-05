@@ -16,19 +16,19 @@
       <div class="navbar-menu">
         <div class="navbar-start">
           <router-link
-            to="/category/front-end"
+            to="/category/adventure"
             exact
             class="navbar-item"
           >
-            Front End
+            Adventure
           </router-link>
 
           <router-link
-            :to="{ name: 'category', params: { id: 'mobile' } }"
+            :to="{ name: 'category', params: { id: 'action' } }"
             exact
             class="navbar-item"
           >
-            Mobile
+            Action
           </router-link>
 
           <router-link

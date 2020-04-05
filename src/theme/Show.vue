@@ -19,7 +19,7 @@
 <script>
 export default {
   props: {
-    post: {
+    show: {
       type: Object,
       required: true
     },
