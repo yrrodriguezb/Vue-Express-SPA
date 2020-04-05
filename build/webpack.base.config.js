@@ -1,5 +1,6 @@
 const path = require('path')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 const config = {
   mode: 'development',
@@ -24,11 +25,13 @@ const config = {
         exclude: /node_modules/
       },
       {
-        test: /(\.s[ac]ss)|(\.css)$/i,
+        test: /\.(sa|sc|c)ss$/,
         use: [
-          'style-loader',
+          {
+            loader: MiniCssExtractPlugin.loader
+          },
           'css-loader',
-          'sass-loader'
+          'sass-loader',
         ],
       }
     ]
@@ -39,6 +42,10 @@ const config = {
     filename: 'assets/js/[name].js'
   },
   plugins: [
+    new MiniCssExtractPlugin({
+      filename: 'assets/css/[name].css',
+      chunkFilename: '[id].css',
+    }),
     new VueLoaderPlugin()
   ],
   resolve: {

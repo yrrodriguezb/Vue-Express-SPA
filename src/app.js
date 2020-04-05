@@ -1,12 +1,10 @@
 import Vue from 'vue'
+import AppLayout from './theme/Layout.vue'
+import router from './router';
 
 const app = new Vue({
-  data() {
-    return {
-      msg: 'Configuración Inicial del proyecto'
-    }
-  },
-  template: '<div>{{ msg }}</div>'
+  router,
+  ...AppLayout
 })
 
-export { app }
+export { app, router }
