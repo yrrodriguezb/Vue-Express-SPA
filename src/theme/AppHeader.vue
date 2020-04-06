@@ -7,8 +7,10 @@
           exact
         >
           <img
-            src="https://bit.ly/vue-img"
+            src="https://github.githubassets.com/images/modules/logos_page/Octocat.png"
             alt="Vue SPA"
+            height="30px"
+            width="100px"
           >
         </router-link>
       </div>
@@ -36,10 +38,23 @@
             exact
             class="navbar-item"
           >
-            Login
+            <span v-if="!isAuthenticated">Login</span>
+            <span v-else>Logout</span>
           </router-link>
         </div>
       </div>
     </div>
   </nav>
 </template>
+
+<script>
+import { mapGetters } from 'vuex'
+
+export default {
+  computed: {
+    ...mapGetters([
+      'isAuthenticated'
+    ])
+  }
+}
+</script>

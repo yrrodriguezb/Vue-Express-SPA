@@ -21,7 +21,7 @@ const router=  new VueRouter({
     },
     {
       path: '/',
-      redirect: '/category/front-end'
+      redirect: '/category/adventure'
     },
     {
       path: '/category/:id',

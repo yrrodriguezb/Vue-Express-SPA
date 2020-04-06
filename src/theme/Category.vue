@@ -22,21 +22,19 @@
 </template>
 <script>
 import Show from "./Show.vue";
-import appService from '../app.service.js';
+import { mapGetters } from 'vuex'
 
 export default {
   components: {
     'app-show': Show
   },
-  data() {
-    return {
-      id: this.$route.params.id,
-      shows: []
-    }
+  computed: {
+    ...mapGetters('showsModule', [
+      'shows'
+    ])
   },
   watch: {
     '$route' (to, from) {
-      this.id = to.params.id
       this.loadShows();
     }
   },
@@ -45,9 +43,7 @@ export default {
   },
   methods: {
     loadShows() {
-      appService.getShows(this.id)
-        .then(data => this.shows = data)
-        .catch(err => console.error)
+      this.$store.dispatch('showsModule/updatedCategory', this.$route.params.id)
     }
   }
 }
