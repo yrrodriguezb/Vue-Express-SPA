@@ -1,3 +1,9 @@
 import { app } from './app'
+import router from './router'
 
-app.$mount('#app')
+// Section VSSR
+router.onReady(() => {
+  app.$mount('#app')
+})
+
+// app.$mount('#app')

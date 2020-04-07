@@ -33,6 +33,14 @@ const config = {
           'css-loader',
           'sass-loader',
         ],
+      },
+      {
+        test: /\.(png|jpe?g|gif)$/i,
+        loader: 'file-loader',
+        options: {
+          outputPath: 'assets/images',
+          name: '[name].[ext]'
+        },
       }
     ]
   },
